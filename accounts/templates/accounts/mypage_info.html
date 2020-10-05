@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static '/styles/fab.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/styles/info.css' %}">
+{% endblock %}
+
+{% block title %}
+	My_info
+{% endblock %}
+
+{% block body %}
+<div class="container bootstrap snippet">
+
+    <div class="col-12">
+      <h3>{{ user.username }}님의 정보 수정</h3>
+    </div>
+
+
+  
+  <div class="row">
+    <!--left col-->
+    <div class="col-sm-3">
+            
+
+    <div class="text-center">
+      {% load gravatar %}
+
+      {% if user|makehash %}
+      <img src="{{ user|makehash }}" alt="" class="avatar img-circle img-thumbnail" style="width: 200px; height: auto;">
+      {% else %}
+      <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+
+      {% endif %}
+     
+      
+    </div></hr><br>
+
+        
+      
+        <ul class="list-group">
+          <li class="list-group-item text-muted">My Activity <i class="fa fa-dashboard fa-1x"></i></li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>면접 횟수</strong></span> 125</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>평균 점수</strong></span> 13</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+        </ul> 
+             
+        
+      </div><!--/col-3-->
+    <div class="col-sm-9">
+            <div class="tab-content"><hr>
+              <form class="form" action="" method="POST" >
+                    {% csrf_token %}
+                    <div class="form-group">         
+                      <div class="col-xs-6">
+                          <label for="username"><h4>ID</h4></label>
+                          <input type="text" class="form-control" name="username" id="username" value="{{ user.username }}" placeholder="{{ user.username }}" disabled>
+                      </div>
+                    </div>
+                    <div class="form-group">         
+                        <div class="col-xs-6">
+                            <label for="first_name"><h4>Name</h4></label>
+                            <input type="text" class="form-control" name="first_name" id="first_name" value="{{ user.first_name }}" placeholder="{{ user.first_name }}">
+                        </div>
+                    </div>
+                    <div class="form-group">                       
+                        <div class="col-xs-6">
+                          <label for="birth"><h4>birth</h4></label>
+                            <input type="text" class="form-control" name="birth" id="birth" value="{{ user.birth }}" placeholder="{{ user.birth }}">
+                        </div>
+                    </div>
+        
+                    <div class="form-group">
+                        
+                        <div class="col-xs-6">
+                            <label for="phone"><h4>Phone</h4></label>
+                            <input type="text" class="form-control" name="phone" id="phone" value="{{ user.phone }}" placeholder="{{ user.phone }}">
+                        </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                          <label for="Password"><h4>Password</h4></label>
+                            <input type="password" class="form-control" name="Password" id="Password" placeholder="비밀번호 변경 시 아래 태그를 눌러주세요" disabled>
+                            <a href="{% url 'accounts:password' %}"> <i class="fas fa-unlock-alt"></i> 비밀번호 변경</a>
+                          </div>
+                    </div> 
+                    
+                    <div class="form-group">         
+                        <div class="col-xs-6">
+                            <label for="email"><h4>Email</h4></label>
+                            <input type="email" class="form-control" name="email" id="email" value="{{ user.email }}"placeholder="{{ user.email }}" title="enter your email.">
+                        </div>
+                    </div>
+   
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <input class="btn btn-lg btn-success pull-right" type="submit" value="수정">
+                          </div>
+                    </div>
+              </form>
+           </div><!--/tab-content-->
+      </div><!--/col-9-->
+  </div><!--/row-->
+</div>
+<div class="fab-menu-container-vertical">
+  <a href="#" class="cornerfloat menu-fab">
+    <i class="fas fa-home"></i>
+  </a>
+  <ul>
+    <li>
+      <a href="{% url 'epia:index' %}" tooltip="메인페이지">
+        <i class="fas fa-list"></i>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'epia:mypage_favorite' %}" tooltip="즐겨찾는 질문 리스트">
+        <i class="fas fa-poll-h"></i>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'interviews:mypage_resultlist' %}" tooltip="면접 결과 리스트">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

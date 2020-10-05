@@ -1,0 +1,17 @@
+body{
+
+}
+body h3{
+    color: rgb(78, 78, 78);
+}
+.form-group label h4{
+    margin-left: 5px;
+    color: rgb(78, 78, 78);
+}
+a{
+    color: rgb(78, 78, 78);
+}
+
+.form-control{
+    color: #17A2B8;
+}

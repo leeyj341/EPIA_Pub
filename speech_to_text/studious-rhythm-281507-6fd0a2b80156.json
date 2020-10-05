@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "studious-rhythm-281507",
+  "private_key_id": "6fd0a2b80156c309b0d4d3b9e84a0ae2eb58c503",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCY4Ls67Nw1aOtQ\nsl5qGDBfkRKZQIussDz9BVlJnkdbQ/rHNwM9PRW9lVDerg6W79OeRwa+3bUmgptg\nz0ETzvG48j0UOpHhywYp46eEEak3uPVUGhL1R25plut0xm3/n9xlT73vBJaoflpx\np7QdDoBhCOxR3u5vgeLwn8GlwP3ENgDlNiUHqIUS5JnSE/BEBSrBmVvL4u2e5o7i\nQvarXYG3mwBNhsF4w/LFMnrkh2/FbSQyX6EnKVodTKPfDcN/KHmm+o4PejgGWQze\nsbmuiK2LxXjgjLrd+qx4LKZt9Lsn/lsoROtmSgv05vNVI69AjXjlsmwerVb2El2b\nYTLi0gjVAgMBAAECggEACGeBCNNrpF4GYwh4lfGK0JN7nRmGHty4xZoigfW7Fi0t\ntKpKucueuIOPD2bXM3yvZV9MjiKcalJkyKosJDLMvsObuv3LS56V0f4LaqsZN+XU\nStF8zad7I5U3OtNhHwaX9FPcF68+Dw4/L59Yu1OIQuKy3H9acUkyg32XhOK6sKty\nL4+oK1YZ7BOiqhwsXpYIqoc2S0Gd6iFeSavh4RxuPRgeHLNHflByD9X54owMcft+\nBLl7TvAa2spjey3UIVapPqIZOdwmdFuJ2sutFQdTN4kjeDIhK5xVH/Us1u73XXox\nNQJo3lQpsf3QddyNChmropmX1YNxX0ayk/1rXyK4AwKBgQDXu9o+7lkbnl2rRwa0\nEDXT1/gC+J+HsYPJAEyiRqOTb6OUf4kHTZQvtXwAXmI/VcdClKA50lPaqnhO3p1r\nQqzKJtC/1Z3dpOjf9OxWO4AT+9Y+hqX6ZEUx232YhLZguQDqQT/VH/Xy9NNPAOMN\nkDpME7yZE7/iFVmRaVv7i7rI8wKBgQC1aYJh7MNYAqUsHmVqhhY8ErJsuRLtJsQ4\nGd7dsjzBCndyqZ5bfivo/B9gO2BRy1lg5WstXi8T4OBqcZiNQVdxBa/olyc2BgOr\nwirdLRALDyIvnCQ2VsLqU2GDEsoDwxdyKsZIbDjt3uSth7UcJEKdRPt9Y9JVXHKb\nAAJxaXzZFwKBgAakkCnT6QaCr9uwSjKNNTsasVZWFYN2Idq0mad9iVfm3iCadLu2\n1dNKQVE5lsjgeUxBi1V8dnyLNz0mea5t1Sg8Xb0qdLv4cftDbWuSVXVIEebG+qFl\nKQRJ/+oMXBlKWQ7dh3umiko6467RFiy6vjDNgscr5oKtqZ5ioiRyvwOlAoGBAJXH\nSAPLtDjM7kxvyDHcBS2SDkhfwXWVpTngejY2O5zyJE7CJmHJ2T0iNFGClHLT3rZ2\nlDe/5ESYTRD1OwudIDHLjUIO0ivzaUJ9LGCyHOXUl9gRJYDLv2AyeXb7o1jZ0VjM\nYitXVuVmOw3e1rQmZ+1rD+yl5vndOy4oItw6SP7/AoGACnmRwVcD3r14gsAhBBwc\naNi4aDBerY1axBrncbjipXm+CsATtQpoM5VA607GQEgJNaJwaNPJOc6uWs5kiIDs\nolLc54eecEvJ47e5yrJoV7QqEJqyxnwwuHnIXu386LJHoLlR4IPSYDDeq56D+1g6\n0cCjByXmYa86dTza2mdYi3A=\n-----END PRIVATE KEY-----\n",
+  "client_email": "speech-to-text-api@studious-rhythm-281507.iam.gserviceaccount.com",
+  "client_id": "114918048000038720571",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-to-text-api%40studious-rhythm-281507.iam.gserviceaccount.com"
+}

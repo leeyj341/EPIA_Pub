@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static '/styles/select_box.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static '/styles/shadow.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static '/styles/prepare.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static '/styles/btn_start.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static '/styles/fab.css' %}">
+{% endblock %}
+
+{% block body %}
+<form name="sendForm" action="{% url 'interviews:interview' %}" method="get">
+  <div class="page-row">
+    <div class="select-page">
+      <!-- {% for num in companies.paginator.page_range %}
+        <a href="{% url 'epia:prepare' %}?page={{num}}">{{ num }}</a>
+      {% endfor %} -->
+    </div>
+  </div>
+  <div class="row index-row">
+    <div class="col-5 select-div">
+      <div class="sel sel--black-panther" id="select-company">
+        <select name="company">
+          <option value="" disabled>회사를 선택하세요</option>
+          {% if companies %}
+            {% for company in companies %}
+              <option value="{{ company.pk }}">{{ company.name }}</option>
+            {% endfor %}
+          {% endif %}
+        </select>
+      </div>
+    </div>
+    <div class="col-7 select-div">
+      <div class="sel sel--black-panther" id="select-position">
+        <select name="position">
+          <option value="" disabled>직무를 선택하세요.</option>
+          <!-- <option value="">None</option> -->
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row index-row">
+    <div class="col-12 select-div">
+      <div class="sel sel--black-panther" id="select-question">
+        <select name="question">
+          <option value="" disabled>질문을 선택하세요.</option>
+          <!-- <option value="">None</option> -->
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row btn-row">
+    <div class="buttons">
+      <button type="button" id="start-interview-easy" class="btn-hover color-1">여유가 넘치는 면접 시작하기</button>
+    </div>
+    <div class="buttons">
+      <button type="button" id="start-interview-hard" class="btn-hover color-2">긴장감 넘치는 면접 시작하기</button>
+    </div>
+  </div>
+  <input type="checkbox" name="mode" id="input-mode" style="display: none;">
+</form>
+
+
+
+
+<div class="fab-menu-container-vertical">
+  <a href="#" class="cornerfloat menu-fab">
+    <i class="fas fa-home"></i>
+  </a>
+  <ul>
+    <li>
+      <a href="{% url 'epia:index' %}" tooltip="메인페이지">
+        <i class="fas fa-list"></i>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'epia:mypage_favorite' %}" tooltip="즐겨찾는 질문 리스트">
+        <i class="fas fa-poll-h"></i>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'interviews:mypage_resultlist' %}" tooltip="면접 결과 리스트">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+   
+  </ul>
+</div>
+{% endblock %}
+
+{% block script %}
+  <script src="{% static '/js/select_box.js' %}"></script>
+{% endblock %}

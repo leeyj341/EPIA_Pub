@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static '/styles/fab.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/styles/info.css' %}">
+<style>
+  #box-question-content {
+    text-align: left;
+  }
+
+  #box-answer-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: box;
+    margin-top: 1px;
+    max-height: 80px;
+    overflow: hidden;
+    vertical-align: top;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3
+  }
+
+  #result_button {
+    border: 0;
+    outline: 0;
+    border-radius: 10%;
+  }
+
+  #result_image {
+    max-width: 100%;
+    max-height: 80%;
+  }
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="container">
+  <div class="col-10">
+    <div>
+      <br>
+      <br>
+      <br>
+      <h2 style="display: inline; ">결과 리스트</h2>
+      <h3 style="display: inline; float: right;">면접 연습 결과 : 총 {{answers|length}}개</h3>
+    </div>
+  </div>
+  <div>
+
+  </div>
+</div>
+<!--container 끝!-->
+<!--면접 결과 리스트 카드뷰 -->
+<section class="services">
+  <div class="container">
+    <div class="row">
+      {% for answer in answers %}
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+        <div class="icon-box icon-box-pink">
+
+          <form action="{%url 'interviews:interview_result'%}" method="GET">
+            <input type="hidden" name="answer_pk" value="{{answer.pk}}" />
+            <!-- <label for="result_image">
+                 </label> -->
+            <button type="submit" class="bx bxl-dribble" value="" id="result_button">
+              <img src="{{ answer.face_image.url }}" id="result_image"/>
+            </button>
+          </form>
+          <hr>
+          <p class="description" id="box-question-date">{{answer.created_at}}</a></p>
+          <h3 class="title" id="box-question-content">{{answer.question.content}}</h3>
+          <p class="description" id="box-answer-content">{{answer.content}}</p>
+        </div>
+      </div>
+      {% endfor%}
+    </div>
+  </div>
+</section><!-- End Services Section -->
+
+<div class="fab-menu-container-vertical">
+  <a href="#" class="cornerfloat menu-fab">
+    <i class="fas fa-home"></i>
+  </a>
+  <ul>
+    <li>
+      <a href="{% url 'epia:index' %}" tooltip="메인페이지">
+        <i class="fas fa-list"></i>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'epia:mypage_favorite' %}" tooltip="즐겨찾는 질문 리스트">
+        <i class="fas fa-poll-h"></i>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'interviews:mypage_resultlist' %}" tooltip="면접 결과 리스트">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

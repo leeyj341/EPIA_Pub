@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static '/styles/login.css' %}">
+{% endblock %}
+{% block title %}
+EPIA_LOGIN
+{% endblock %}
+
+{% block body %}
+<section  class="d-flex justify-cntent-center">
+	<form class="form" action="{% url 'accounts:login' %}" method="POST" autocomplete='off'>
+		{% csrf_token %}
+		<div class='control'>
+			<h1>
+				LOGIN
+			</h1>
+		</div>
+		<div class='control block-cube block-input'>
+			<input name='username' placeholder='ID' type='text'>
+			<div class='bg-top'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg-right'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg'>
+				<div class='bg-inner'></div>
+			</div>
+		</div>
+		<div class='control block-cube block-input'>
+			<input name='password' placeholder='Password' type='password'>
+			<div class='bg-top'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg-right'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg'>
+				<div class='bg-inner'></div>
+			</div>
+		</div>
+		<button class='btn block-cube block-cube-hover' type='submit'>
+			<div class='bg-top'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg-right'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='bg'>
+				<div class='bg-inner'></div>
+			</div>
+			<div class='text'>
+				LOGIN
+			</div>
+		</button>
+		<div class="text">
+		<span>Not a User?</span>
+			<a href="{% url 'accounts:signup' %}"> Sign Up </a>
+		</div>
+		<div class='credits' id='credits'>
+			<a href="{% url 'epia:index' %}">
+				by 취준면답
+			</a>
+		</div>	
+	</form>
+	
+</section>
+{% endblock %}
+{% block script %}
+<!-- 여기에 본인이 사용하는 js 파일 넣기 -->
+{% endblock %}

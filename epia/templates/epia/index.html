@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<!-- 여기에 본인이 사용하는 css 넣기 -->
+<link rel="stylesheet" type="text/css" href="{% static '/styles/fab.css' %}">
+
+{% endblock %}
+{% block title %}
+EPIA
+{% endblock %}
+{% block body %}
+
+<section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row justify-content-center">
+      <div class="col-xl-8">
+        <h2>취준면답</h2>
+        <p>취업 준비생, 면접에 답하다</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'epia:prepare' %}" class="btn-get-started ">면접 시작</a>
+        {% else %}
+        <a href="{% url 'accounts:login' %}" class="btn-get-started ">LOGIN</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<main id="main">
+
+  <div class="fab-menu-container-vertical">
+    <a href="#" class="cornerfloat menu-fab">
+      <i class="fas fa-home"></i>
+    </a>
+    <ul>
+      <li>
+        <a href="{% url 'epia:index' %}" tooltip="메인페이지">
+          <i class="fas fa-list"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'epia:mypage_favorite' %}" tooltip="즐겨찾는 질문 리스트">
+          <i class="fas fa-poll-h"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'interviews:mypage_resultlist' %}" tooltip="면접 결과 리스트">
+          <i class="fa fa-envelope"></i>
+        </a>
+      </li>
+     
+    </ul>
+  </div>
+  <!-- ======= Footer ======= -->
+  <!-- <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>면접 질문 검색</h4>
+            <p style="color: white;">준비하고 싶은 '질문'이나 '키워드'를 검색하세요</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Search">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </footer> -->
+  <!-- End Footer -->
+
+
+
+  {% endblock %}
+  {% block script %}
+  <!-- 여기에 본인이 사용하는 js 파일 넣기 -->
+  {% endblock %}

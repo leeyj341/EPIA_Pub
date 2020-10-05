@@ -1,0 +1,83 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	{% bootstrap_css %}
+	<!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+	<link rel="shortcut icon" href="{% static '/images/favicon.ico' %}">
+	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static '/styles/main_custom.css' %}">	<link rel="stylesheet" type="text/css" href="{% static '/styles/core.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/styles/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/plugins/OwlCarousel2-2.2.1/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/styles/main_styles.css' %}">
+
+  {% block css %}
+  {% endblock %}
+  <title>
+    {% block title %}
+      취준면답
+    {% endblock %}
+  </title>
+</head>
+
+<body>
+	<!-- Top Bar -->
+	<div class="top_bar">
+		<div class="top_bar_container" >
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+							<div class="top_bar_phone"><a href="{% url 'epia:index' %}" id="logo_text"><img id="logo_img"src="{% static '/images/epia_logo_simple_bluegreen.png' %}" alt="logo"><span class="top_bar_title">취준면답</span></a></div>
+							<div class="top_bar_right ml-auto">
+
+											
+								<!-- Social -->
+								{% if user.is_authenticated %}
+								<div class="top_bar_social">
+									<span class="top_bar_title social_title">{{ user.username }}님 환영합니다.</span>
+									<ul class="lang_list">
+										<li class="hassubs"><a href="{% url 'accounts:mypage_info_update' %}"> 회원정보수정 </a></li>
+										<li class="hassubs"><a href="{% url 'epia:mypage_favorite' %}"> 마이페이지 </i></a></li>
+										<li class="hassubs"><a href="{% url 'accounts:logout' %}"> 로그아웃 </i></a></li>
+								</ul>
+								</div>
+								{% else %}
+								<div class="top_bar_social">
+									<span class="top_bar_title social_title">로그인이 필요한 서비스입니다.</span>
+									<ul class="lang_list">
+										<li class="hassubs"><a href="{% url 'accounts:login' %}"> 로그인 </a></li>
+										<li class="hassubs"><a href="{% url 'accounts:signup' %}"> 회원가입 </i></a></li>
+		</ul>
+											</div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br />
+
+	<div class="container body-content-container">
+		{% block body %}
+		{% endblock %}
+	</div>
+	
+  {% bootstrap_javascript jquery='full' %}
+		<script src="https://kit.fontawesome.com/176b34b7db.js" crossorigin="anonymous"></script>
+		<script src="{% static '/js/core.js' %}"></script> 
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  {% block script %}
+  {% endblock %}
+</body>
+
+</html>

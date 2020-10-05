@@ -1,0 +1,34 @@
+.row {
+    margin: 0 !important;
+}
+
+.page-row {
+    margin-top: 10%;
+}
+
+.select-page > a {
+    color: white;
+}
+.select-page > a:hover {
+    color: steelblue;
+}
+
+.select-div {
+    position: relative;
+}
+
+.row:nth-child(2) > .select-div:first-child {
+    /* background-color: salmon; */
+    z-index: 3;
+}
+
+.row:nth-child(2) > .select-div:last-child {
+    /* background-color: sandybrown; */
+    z-index: 2;
+}
+
+.row:nth-child(3) > .select-div {
+    /* background-color: steelblue; */
+    margin-top: 15%;
+    z-index: 1;
+}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'styles/btn_start.css' %}">
+  <link rel="stylesheet" href="{% static 'interviews/styles/user_media.css' %}">
+  <link rel="stylesheet" href="{% static 'interviews/styles/interview_modal.css' %}">
+  <link rel="stylesheet" href="{% static 'interviews/styles/loader.css' %}">
+{% endblock %}
+
+{% block body %}
+  <form name="recordForm" action="{% url 'interviews:interview_result' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="question_pk" id="question-pk" value="{{question.pk}}" style="display: none;">
+    <input type="text" name="answer_pk" id="answer-pk" style="display: none;">
+    <input type="text" name="face_pk" id="face-pk" style="display: none;">
+    <!-- <input type="file" name="recording" id="save-audio" accept="audio/wav" style="display: none;" src=""> -->
+    <!-- <input type="file" name="" id="" accept="image/*" style="display: none;"> -->
+  </form>
+  <div class="row interview-row">
+    <span class="input-text">{{company.name}}&nbsp;/</span>
+    <span class="input-text">&nbsp;{{position.name}}</span>
+  </div>
+  <div class="row interview-row">
+    <p class="input-text">{{question.content}}</p>
+  </div>
+  <div class="row cam-area">
+    <div class="col-5 text-center">
+      <!-- 여기에 회장님 사진 넣을거야 -->
+      <img id="ceo-picture" src="{% static ceo.path %}" alt="{{ceo.company}}" style="width: inherit; max-height: inherit;">
+    </div>
+    <div class="col-7">
+      <video id="video-record" autoplay muted></video>
+      <!-- <audio id="audio-record" autoplay muted style="display: none;"></audio> -->
+    </div>
+  </div>
+  <div class="row btn-row">
+    <div class="buttons">
+      <button id="status" class="btn-hover color-3">면접 준비</button>
+    </div>
+  </div>
+
+  <p id="interview-mode">{{mode}}</p>
+
+  <!-- Modal Structure -->
+  <div id="timer-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content text-center">
+      <p>잠시 후 면접이 시작됩니다.</p>
+      <p id="p-time-text"></p>
+      <button id="btn-skip" class="btn btn-primary">바로 시작</button>
+    </div>
+  </div>
+  
+  <!-- loader -->
+  <div id="loader-div">
+    <div class="loader-overlay"></div>
+    <div class="loader"></div>
+    <div class="loading-message text-center">
+      <p>결과를 불러오고 있습니다...</p>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'interviews/js/interview_modal_control.js' %}"></script>
+  <script src="{% static 'interviews/js/loading.js' %}"></script>
+  <script src="{% static 'interviews/js/user_media.js' %}"></script>
+  <script>
+    const who = document.querySelector("#ceo-picture")
+    console.log(who)
+  </script>
+{% endblock %}

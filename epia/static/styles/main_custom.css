@@ -1,0 +1,38 @@
+    
+/* --------------------------------------------------------- */
+/* --------------------------------------------------------- */
+@font-face {
+	font-family: nexon_fb_L;
+	src:local(NEXONFootballGothicL);
+	font-weight: normal;
+}
+@font-face {
+	font-family: nexon_fb_B;
+	src:local(NEXONFootballGothicB);
+	font-weight: normal;
+}
+
+body
+{
+	font-family: 'nexon_fb_L', 'Poppins', sans-serif;
+}
+
+#center-line {
+    height: 10px;
+    border: none;
+    background: rgb(247, 202, 201);
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
+}
+#logo_text{
+    color: rgb(78, 78, 78);
+    font-size: 16px;
+}
+#logo_img{
+    width: 45px;
+    height:45px;
+}

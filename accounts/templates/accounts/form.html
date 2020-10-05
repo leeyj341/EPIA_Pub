@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static '/styles/sy_form.css' %}">
+{% endblock %}
+
+{% block title %}
+	EPIA_SIGNUP
+{% endblock %}
+{% block body %}
+<div class="container">
+  <h1>회원가입</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="OK" class="btn btn-info">
+  </form>
+</div>
+{% endblock %}
